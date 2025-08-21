@@ -7,6 +7,8 @@ import {
   LucideIcon
 } from 'lucide-react';
 
+import ContactForm from '@/components/ContactForm';
+
 // TypeScript Interfaces
 interface Metric {
   value: string;
@@ -474,6 +476,9 @@ export default function MicroCropLanding() {
             </div>
           </div>
         </div>
+
+        {/* Contact Form Section - Place it here, between Features and CTA */}
+        <ContactForm />
 
         {/* CTA Section */}
         <div className="w-full py-20 bg-gradient-to-r from-green-500/20 to-emerald-500/20">
