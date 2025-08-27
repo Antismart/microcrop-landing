@@ -1,4 +1,9 @@
-const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
+interface NavigationProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: (open: boolean) => void;
+}
+
+const Navigation = ({ isMenuOpen, setIsMenuOpen }: NavigationProps) => {
   const navItems = ['Dashboard', 'Policies', 'Pools', 'Weather'];
   
   return (
