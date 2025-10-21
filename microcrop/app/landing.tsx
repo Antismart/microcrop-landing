@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Cloud, Shield, Zap, TrendingUp, Users, Globe, CheckCircle, ArrowRight,
   Menu, X, Sun, CloudRain, Wind, Thermometer, Activity, DollarSign, Layers,
@@ -47,10 +48,6 @@ interface WeatherItem {
   label: string;
   value: string;
   color: string;
-}
-
-interface MicroCropLogoProps {
-  size?: number;
 }
 
 export default function MicroCropLanding() {
@@ -111,7 +108,13 @@ export default function MicroCropLanding() {
     { icon: Thermometer, label: 'Feels Like', value: weatherData.feelsLike, color: 'text-red-400' }
   ];
 
-  const navItems: string[] = ['Dashboard', 'Policies', 'Pools', 'Weather'];
+  const navItems: { label: string; href: string }[] = [
+    { label: 'Dashboard', href: '#' },
+    { label: 'Policies', href: '#' },
+    { label: 'Pools', href: '#' },
+    { label: 'Weather', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' }
+  ];
   const socialLinks: string[] = ['Twitter', 'Discord', 'GitHub', 'Docs'];
 
   useEffect(() => {
@@ -120,54 +123,6 @@ export default function MicroCropLanding() {
     }, 4000);
     return () => clearInterval(timer);
   }, [metrics.length]);
-
-  // Custom MicroCrop Logo Component
-  const MicroCropLogo: React.FC<MicroCropLogoProps> = ({ size = 40 }) => (
-    <div className="relative" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 100 100" className="w-full h-full">
-        <path
-          d="M30 70 Q20 50 35 35 Q50 20 65 35 Q80 50 70 70"
-          fill="url(#leafGradient1)"
-          className="drop-shadow-sm"
-        />
-        <path
-          d="M45 75 Q35 55 50 40 Q65 25 80 40 Q95 55 85 75"
-          fill="url(#leafGradient2)"
-          className="drop-shadow-sm"
-        />
-        <path d="M15 85 Q35 75 55 85" stroke="url(#fieldGradient)" strokeWidth="4" fill="none" />
-        <path d="M25 90 Q45 80 65 90" stroke="url(#fieldGradient)" strokeWidth="4" fill="none" />
-        <path d="M35 95 Q55 85 75 95" stroke="url(#fieldGradient)" strokeWidth="4" fill="none" />
-        
-        <g transform="translate(65, 60)">
-          <rect x="0" y="0" width="6" height="6" fill="#84cc16" rx="1" />
-          <rect x="12" y="0" width="6" height="6" fill="#84cc16" rx="1" />
-          <rect x="0" y="12" width="6" height="6" fill="#84cc16" rx="1" />
-          <rect x="12" y="12" width="6" height="6" fill="#84cc16" rx="1" />
-          <line x1="6" y1="3" x2="12" y2="3" stroke="#84cc16" strokeWidth="2" />
-          <line x1="3" y1="6" x2="3" y2="12" stroke="#84cc16" strokeWidth="2" />
-          <line x1="15" y1="6" x2="15" y2="12" stroke="#84cc16" strokeWidth="2" />
-          <line x1="6" y1="15" x2="12" y2="15" stroke="#84cc16" strokeWidth="2" />
-        </g>
-        
-        <defs>
-          <linearGradient id="leafGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#84cc16" />
-            <stop offset="100%" stopColor="#65a30d" />
-          </linearGradient>
-          <linearGradient id="leafGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#a3e635" />
-            <stop offset="100%" stopColor="#84cc16" />
-          </linearGradient>
-          <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#84cc16" />
-            <stop offset="50%" stopColor="#65a30d" />
-            <stop offset="100%" stopColor="#84cc16" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-  );
 
   const getStatusColor = (status: Activity['status']): string => {
     switch (status) {
@@ -220,17 +175,17 @@ export default function MicroCropLanding() {
             </div>
             
             <nav className="hidden md:flex items-center space-x-8">
-              {navItems.map((item: string, index: number) => (
-                <a 
-                  key={item} 
-                  href="#" 
+              {navItems.map(({ label, href }, index: number) => (
+                <Link
+                  key={label}
+                  href={href}
                   className="text-white/70 hover:text-emerald-300 transition-all duration-500 relative group font-medium tracking-wide"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {item}
+                  {label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-green-300 transition-all duration-500 group-hover:w-full"></span>
                   <div className="absolute inset-0 bg-emerald-400/10 rounded-lg scale-0 group-hover:scale-100 transition-all duration-300 -z-10"></div>
-                </a>
+                </Link>
               ))}
             </nav>
 
@@ -263,10 +218,10 @@ export default function MicroCropLanding() {
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-8 text-xl">
-            {navItems.map((item: string) => (
-              <a key={item} href="#" className="text-gray-300 hover:text-green-400 transition-colors">
-                {item}
-              </a>
+            {navItems.map(({ label, href }) => (
+              <Link key={label} href={href} className="text-gray-300 hover:text-green-400 transition-colors">
+                {label}
+              </Link>
             ))}
           </div>
         </div>
@@ -546,6 +501,11 @@ export default function MicroCropLanding() {
               <p className="text-gray-400">
                 © 2025 MicroCrop Protocol. Built on Flow Blockchain. 
                 <span className="text-green-400 font-medium"> Revolutionizing agricultural insurance across Africa.</span>
+              </p>
+              <p className="mt-4 text-sm text-gray-500">
+                <Link href="/privacy-policy" className="text-green-400 hover:text-green-300 transition-colors font-medium">
+                  Privacy Policy
+                </Link>
               </p>
             </div>
           </div>
