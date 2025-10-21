@@ -191,10 +191,6 @@ export default function MicroCropLanding() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <div className="hidden sm:flex items-center space-x-2 bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2 rounded-full shadow-lg">
-                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50"></div>
-                <span className="text-sm text-emerald-200 font-medium tracking-wide">Demo Mode</span>
-              </div>
               <button 
                 type="button"
                 className="bg-gradient-to-r from-emerald-400/90 to-green-500/90 backdrop-blur-xl text-black px-6 py-3 rounded-2xl font-bold hover:shadow-2xl hover:shadow-emerald-400/30 hover:scale-105 transition-all duration-500 border border-white/20 tracking-wide"
@@ -445,15 +441,6 @@ export default function MicroCropLanding() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button 
-                type="button"
-                className="group bg-gradient-to-r from-green-500 to-emerald-600 text-black px-10 py-5 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-green-500/25 transition-all duration-300 flex items-center justify-center space-x-3"
-                onClick={() => alert('Demo protection coming soon!')}
-              >
-                <Shield size={24} />
-                <span>Try Demo</span>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
               <button 
                 type="button"
                 className="border-2 border-green-500 text-green-400 px-10 py-5 rounded-xl font-bold text-lg hover:bg-green-500/10 transition-all duration-300 backdrop-blur-sm"
