@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Cloud, Shield, Zap, TrendingUp, Users, Globe, CheckCircle, ArrowRight,
-  Menu, X, Sun, CloudRain, Wind, Thermometer, Activity, DollarSign, Layers,
+  Menu, X, Sun, CloudRain, Wind, Thermometer, Activity, DollarSign,
   LucideIcon
 } from 'lucide-react';
 
@@ -236,12 +236,6 @@ export default function MicroCropLanding() {
             <div className="flex flex-col lg:flex-row gap-12 items-center">
               {/* Hero Content */}
               <div className="lg:w-1/2 space-y-8">
-                <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-2xl border border-white/20 text-emerald-200 px-6 py-3 rounded-full text-sm font-medium shadow-xl hover:scale-105 transition-all duration-500">
-                  <Layers size={16} className="animate-pulse" />
-                  <span className="tracking-wide">Built on Flow Blockchain</span>
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50"></div>
-                </div>
-
                 <div className="space-y-6">
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
                     <span className="text-white/90 hover:text-white transition-colors duration-700">Protect Your</span><br />
@@ -500,7 +494,7 @@ export default function MicroCropLanding() {
             
             <div className="pt-8 border-t border-green-500/20 text-center">
               <p className="text-gray-400">
-                © 2025 MicroCrop Protocol. Built on Flow Blockchain. 
+                © 2025 MicroCrop Protocol. 
                 <span className="text-green-400 font-medium"> Revolutionizing agricultural insurance across Africa.</span>
               </p>
               <div className="mt-4 flex flex-col items-center gap-2 text-sm text-gray-500 md:flex-row md:justify-center">
