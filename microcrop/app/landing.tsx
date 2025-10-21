@@ -110,10 +110,11 @@ export default function MicroCropLanding() {
 
   const navItems: { label: string; href: string }[] = [
     { label: 'Dashboard', href: '#' },
-    { label: 'Policies', href: '#' },
-    { label: 'Pools', href: '#' },
-    { label: 'Weather', href: '#' },
-    { label: 'Privacy Policy', href: '/privacy-policy' }
+    // { label: 'Policies', href: '#' },
+    // { label: 'Pools', href: '#' },
+    // { label: 'Weather', href: '#' },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-of-service' }
   ];
   const socialLinks: string[] = ['Twitter', 'Discord', 'GitHub', 'Docs'];
 
@@ -219,7 +220,7 @@ export default function MicroCropLanding() {
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-8 text-xl">
             {navItems.map(({ label, href }) => (
-              <Link key={label} href={href} className="text-gray-300 hover:text-green-400 transition-colors">
+              <Link key={label} href={href} className="text-gray-300 hover:text-green-400 transition-colors" onClick={() => setIsMenuOpen(false)}>
                 {label}
               </Link>
             ))}
@@ -502,11 +503,15 @@ export default function MicroCropLanding() {
                 © 2025 MicroCrop Protocol. Built on Flow Blockchain. 
                 <span className="text-green-400 font-medium"> Revolutionizing agricultural insurance across Africa.</span>
               </p>
-              <p className="mt-4 text-sm text-gray-500">
+              <div className="mt-4 flex flex-col items-center gap-2 text-sm text-gray-500 md:flex-row md:justify-center">
                 <Link href="/privacy-policy" className="text-green-400 hover:text-green-300 transition-colors font-medium">
                   Privacy Policy
                 </Link>
-              </p>
+                <span className="hidden md:inline text-gray-600">•</span>
+                <Link href="/terms-of-service" className="text-green-400 hover:text-green-300 transition-colors font-medium">
+                  Terms of Service
+                </Link>
+              </div>
             </div>
           </div>
         </div>
