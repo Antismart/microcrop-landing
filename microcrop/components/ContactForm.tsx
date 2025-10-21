@@ -49,13 +49,13 @@ export default function ContactForm() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">
-            Let's Start a{' '}
+            Let’s Start a{' '}
             <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
               Conversation
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Whether you're a farmer, partner, investor, or just curious about our mission - we'd love to hear from you.
+            Whether you’re a farmer, partner, investor, or just curious about our mission - we’d love to hear from you.
           </p>
         </div>
 
