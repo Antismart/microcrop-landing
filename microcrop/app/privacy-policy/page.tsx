@@ -110,7 +110,7 @@ const sections = [
     paragraphs: [
       "For any questions, concerns, or requests related to your data, please contact:",
       "MicroCrop",
-      "Email: support@microcrop.app      git commit -m "chore: add base Next.js ESLint configuration"",
+      "Email: support@microcrop.app",
       "Website: www.microcrop.app",
       "Nairobi, Kenya",
     ],
